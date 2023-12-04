@@ -1,7 +1,9 @@
 import { View,Text,StyleSheet, SafeAreaView } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import Color from "./utils/Color";
+import useWeatherInfo from "./Hooks/useWeatherInfo";
 function App(){
+  const data = useWeatherInfo('Multan')
 return (
   <SafeAreaView>
     <View style={{backgroundColor:Colors.black,}}>
@@ -11,7 +13,10 @@ return (
      <View style={styles.container}>
      <Text style={styles.text}>Created by Syed Talal Jilani</Text>
      </View>
-     <View style={{backgroundColor:Color.AQUA_GREEN}}></View>
+     <View style={{backgroundColor:Color.PURPLE}}>
+      <Text style={{fontSize:30}}>{data.tempC}</Text>
+      <Text style={{fontSize:30}}>{data.location}</Text>
+     </View>
   </View>
   </SafeAreaView>
 );
